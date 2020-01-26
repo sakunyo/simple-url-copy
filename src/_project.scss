@@ -1,0 +1,28 @@
+.p-container {
+  width: var(--popup-width);
+}
+
+.p-block {
+  display: block;
+  margin-bottom: var(--margin-medium);
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .p-block__label {
+    span {
+      font-weight: var(--font-bold);
+      text-transform: uppercase;
+    }
+  }
+  .p-block__button {
+    display: flex;
+    justify-content: space-between;
+    input {
+      width: 68%;
+      padding: var(--box-padding);
+      border: 1px solid var(--main-color);
+    }
+    .c-button {
+    }
+  }
+}

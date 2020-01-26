@@ -1,0 +1,21 @@
+.c-button {
+  min-width: 8rem;
+  border: none;
+  border-radius: var(--box-radius);
+  font-weight: var(--font-bold);
+  font-size: 10px;
+  letter-spacing: 0.1rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+
+  &.c-button-primary {
+    padding: var(--box-padding);
+    background-color: var(--main-color);
+    color: var(--base-color);
+  }
+
+  &.c-button-outline {
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+  }
+}

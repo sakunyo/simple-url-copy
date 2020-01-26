@@ -1,0 +1,27 @@
+:root {
+  --popup-width: 480px;
+
+  --main-color: #ee7777;
+  --main-color-tint: lighten(var(--main-color), 25%);
+  --main-color-shadow: darken(var(--main-color), 15%);
+
+  --base-color: #ebebe3;
+  --base-color-tint: lighten(var(--base-color), 25%);
+  --base-color-shadow: darken(var(--base-color), 15%);
+
+  --sub-color: #f72db4;
+  --sub-color-tint: lighten(var(--sub-color), 25%);
+  --sub-color-shadow: darken(var(--sub-color), 15%);
+
+  --margin-small: 8px;
+  --margin-medium: 16px;
+  --margin-large: 24px;
+  --margin-huge: 36px;
+
+  --box-padding: 4px;
+  --box-radius: 6px;
+
+  --font-normal: 1rem;
+  --font-bold: 600;
+  --line-height: 1.75;
+}

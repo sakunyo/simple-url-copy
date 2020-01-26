@@ -1,0 +1,28 @@
+{
+  "name": "my-tools",
+  "version": "1.1.0",
+  "description": "this is a my utility",
+  "main": "background.js",
+  "scripts": {
+    "rollup": "rollup --config rollup.config.js",
+    "style": "node-sass src/style.scss > dest/style.css"
+  },
+  "keywords": [
+    "chrome"
+  ],
+  "author": "shinya sugo",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^2.1.0",
+    "@types/chrome": "0.0.92",
+    "cpx": "^1.5.0",
+    "eslint": "^6.8.0",
+    "modern-css-reset": "^1.0.4",
+    "node-sass": "^4.13.1",
+    "prettier": "^1.19.1",
+    "rollup": "^1.29.1",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.5"
+  }
+}
