@@ -1,10 +1,20 @@
 /**
  * this is popup.js
  */
+type NotNull<T extends object> = {
+  [P in keyof T]: NonNullable<T[P]>;
+};
+
 const CONTENT_SCRIPT_PATH = 'dest/contentscript.js';
 
-const getElement = (id: string) =>
-  document.getElementById(id) as HTMLInputElement | null;
+const getElement = function<T extends HTMLElement>(id: string) {
+  return document.getElementById(id) as T | null;
+};
+
+const handleCopy = (input: HTMLInputElement) => {
+  input.select();
+  document.execCommand('copy');
+};
 
 chrome.tabs.query(
   {
@@ -20,23 +30,41 @@ chrome.tabs.query(
   },
 );
 
-const main = () => {
-  const titleInputRef = getElement('title');
-  const urlInputRef = getElement('url');
-
-  if (titleInputRef && urlInputRef) {
-    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-      if (request.title) {
-        titleInputRef.value = request.title;
-      }
-
-      if (request.url) {
-        urlInputRef.value = request.url;
-      }
-
-      sendResponse({farewell: 'goodbye'});
-    });
-  }
+type Item = {
+  id: string;
+  value: string;
+  input: HTMLInputElement | null;
+  button: HTMLButtonElement | null;
 };
 
-main();
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  const generate = (id: string) => ({
+    id,
+    value: ((id, request) => {
+      switch (id) {
+        case 'md':
+          return `[${request['title']}](${request['url']})`;
+        default:
+          return request[id];
+      }
+    })(id, request),
+    input: getElement<HTMLInputElement>(id),
+    button: getElement<HTMLButtonElement>(`btn-${id}`),
+  });
+
+  const filter = (item: Item): boolean => {
+    return item.input !== null && item.button !== null;
+  };
+
+  const attach = (item: NotNull<Item>) => {
+    item.input.value = item.value;
+    item.button.addEventListener('click', () => handleCopy(item.input));
+  };
+
+  ['title', 'url', 'md']
+    .map(generate)
+    .filter((i: Item): i is NotNull<Item> => filter(i))
+    .forEach(attach);
+
+  sendResponse({farewell: 'goodbye'});
+});
