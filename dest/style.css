@@ -1,0 +1,141 @@
+/*
+  Copyright (c) 2019 Andy Bell and other contributors
+  Code released under the MIT license
+  https://github.com/hankchizljaw/modern-css-reset/blob/master/LICENSE
+*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0; }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0; }
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5; }
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none; }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto; }
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block; }
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em; }
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit; }
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+
+/**
+ * Copyright 2020 Shinya Sugo
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+:root {
+  --popup-width: 480px;
+  --main-color: #ee7777;
+  --main-color-tint: lighten(var(--main-color), 25%);
+  --main-color-shadow: darken(var(--main-color), 15%);
+  --base-color: #ebebe3;
+  --base-color-tint: lighten(var(--base-color), 25%);
+  --base-color-shadow: darken(var(--base-color), 15%);
+  --sub-color: #f72db4;
+  --sub-color-tint: lighten(var(--sub-color), 25%);
+  --sub-color-shadow: darken(var(--sub-color), 15%);
+  --margin-small: 8px;
+  --margin-medium: 16px;
+  --margin-large: 24px;
+  --margin-huge: 36px;
+  --box-padding: 4px;
+  --box-radius: 6px;
+  --font-normal: 1rem;
+  --font-bold: 600;
+  --line-height: 1.75; }
+
+body {
+  padding: var(--margin-small);
+  background-color: var(--main-color-tint);
+  font-family: sans-serif; }
+
+.c-button {
+  min-width: 8rem;
+  border: none;
+  border-radius: var(--box-radius);
+  font-weight: var(--font-bold);
+  font-size: 10px;
+  letter-spacing: 0.1rem;
+  line-height: 1.75;
+  text-transform: uppercase; }
+  .c-button.c-button-primary {
+    padding: var(--box-padding);
+    background-color: var(--main-color);
+    color: var(--base-color); }
+  .c-button.c-button-outline {
+    border: 2px solid var(--main-color);
+    color: var(--main-color); }
+
+.p-container {
+  width: var(--popup-width); }
+
+.p-block {
+  display: block;
+  margin-bottom: var(--margin-medium); }
+  .p-block:last-child {
+    margin-bottom: 0; }
+  .p-block .p-block__label span {
+    font-weight: var(--font-bold);
+    text-transform: uppercase; }
+  .p-block .p-block__button {
+    display: flex;
+    justify-content: space-between; }
+    .p-block .p-block__button input {
+      width: 68%;
+      padding: var(--box-padding);
+      border: 1px solid var(--main-color); }

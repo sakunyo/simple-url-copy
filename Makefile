@@ -7,4 +7,4 @@ clean:
 	/bin/rm -f dest/*.*
 
 copy:
-	cp src/popup.html dest/ && cp src/logo.png dest/
+	cp src/popup.html dest/ && cp src/icon.png dest/
